@@ -6,27 +6,33 @@ from bs4 import BeautifulSoup as bs
 base_url='http://family.wanhai.com'
 loginURL = base_url + '/Login.jsp'
 account='M1933'
-password='1933Whlm'
+password='1933whlM'
 payload = {'Account': account,'Password': password}
 meeting_rooms = None
 massage_rooms = None
-session_req=requests.Session()
-session_req.post(loginURL,data=payload)
+session_req = None
+# session_req.post(loginURL,data=payload)
 
 #%%
 def login(id,pw):
     global session_req
     if session_req == None:
         session_req=requests.Session()
-    session_req.post(loginURL,data={'Account': account,'Password': password})
+    res = session_req.post(loginURL,data={'Account': account,'Password': password})
+    print(res.request.headers['Cookie'])
 
 #%%
 def isLogin():
     global session_req
+    if session_req == None:
+        session_req=requests.Session()
     route_url = base_url + '/MainPage.jsp'
     res = session_req.get(route_url,allow_redirects=False)
-    print(res.request.headers['Cookie'])
-    return res.status_code == 200
+    if res.status_code == 200:
+        print(res.request.headers['Cookie'])
+        return True
+    else:
+        return False
     
 #%%
 def getEquipList(type='MEETING'):
@@ -76,7 +82,7 @@ def isEquipInUsed(b_date,b_time,e_time,equip_type,equip_id):
 #%%
 # 查詢設備可用時段(by 特定日期)
 def search_available_time(equip_type,equip_id,strDate):
-    if equipId == 'MASSAGE':
+    if equip_type == 'MASSAGE':
         print('Not Support Now!!!')
         return
     from interval import Interval
@@ -89,12 +95,13 @@ def search_available_time(equip_type,equip_id,strDate):
                ('ID_keyD',equip_id)]
     result = session_req.post(equipUsageURL,data=payload)
     soup = bs(result.text,'html.parser')
+    # print(soup.prettify())
     print('{}:\n{}'.format(equip_id, soup.select('td[nowrap]')[0].text))
 
 #%%
 # 查詢可用設備(by 特定日期/時段)
 def search_available_equips(equip_type,strDate,b_time,e_time):
-    if equipId == 'MASSAGE':
+    if equip_type == 'MASSAGE':
         print('Not Support Now!!!')
         return
     from interval import Interval
@@ -105,7 +112,7 @@ def search_available_equips(equip_type,strDate,b_time,e_time):
                ('q_to_time',''),
                ('q_equip_type',equip_type)]
     
-    payload.extend([('ID_keyD',e['id']) for e in meeting_rooms])          
+    payload.extend([('ID_keyD',e) for e in meeting_rooms.keys()])          
     result = session_req.post(equipUsageURL,data=payload)
     soup = bs(result.text,'html.parser')
     equips = [equip.text.strip() for equip in soup.select('div[id="equips"] td[align="center"]')]       
@@ -134,7 +141,7 @@ def search_available_equips(equip_type,strDate,b_time,e_time):
             print('{}\n'.format(equips[index]))
 
 #%%
-# 預定設備
+# 預約設備
 def bookingEquip(equip_id,equip_type,strDate,b_time,e_time):
     if equip_type=='MASSAGE':
         print('Not Support Now!!!')
@@ -212,15 +219,16 @@ print(getEquipName(equipId))
 inUsed = isEquipInUsed('20190606','1900','2000','MEETING',equipId)
 print('Equip in used? {}'.format(inUsed))                                                              
 #%%
-search_available_equips('MEETING','20190617','1400','1600')
+search_available_equips('MEETING','20190624','0900','1200')
 #%%
-search_available_time('MEETING','CF01-9F','20190617')
+search_available_time('MEETING','CF01-9F','20190624')
 
 #%%
 if not isLogin():
     login(account,password)
 meeting_rooms = getEquipList('MEETING')
 massage_rooms = getEquipList('MASSAGE')
+
 for x in meeting_rooms:
     print(x,meeting_rooms.get(x))
 print('\n')
@@ -231,5 +239,3 @@ for x in massage_rooms:
 #%%
 if __name__ == '__main__':
    pass
-
-#%%

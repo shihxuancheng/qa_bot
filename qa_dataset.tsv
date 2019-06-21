@@ -1,0 +1,183 @@
+﻿Question	Answer	Source	Metadata	SuggestedQuestions	IsContextOnly	Prompts	QnaId
+無交談記錄	確認 Lync設定，重新設定保留記錄至本機Outlook端，並測試確認	qa_dataset.xlsx		[]	false	[]	2
+Lync無法開啟	進工作管理員將多餘Communicator關閉後已可正常使用	qa_dataset.xlsx		[]	false	[]	3
+Lync無法登入	清除lync本機端帳號暫存後即可	qa_dataset.xlsx		[]	false	[]	4
+Oracle開啟後顯示can not read form menu.fmx.	Novell未登入導致，重新登入即可	qa_dataset.xlsx		[]	false	[]	5
+Oracle產生PDF檔案出現已停止運作	測試多種PDFCreator版本均無用，安裝PDF995供User使用	qa_dataset.xlsx		[]	false	[]	6
+開啟後顯示 ORA 12545 Error	關閉APM，安裝DNS_RELAY後重新開起即可	qa_dataset.xlsx		[]	false	[]	7
+Oracle開啟後顯示亂碼	安裝Oracle安裝資料夾內reg檔即可	qa_dataset.xlsx		[]	false	[]	8
+64位元系統開啟Oracle程式顯示空白	將Oracle安裝資料夾內64bit資料夾覆蓋至安裝路徑即可	qa_dataset.xlsx		[]	false	[]	9
+Excel列印格式調整	協助調整Excel列印格式，設定每頁均列印標題	qa_dataset.xlsx		[]	false	[]	10
+Excel特定檔存檔自動關閉	修復、重新安裝Office、更新測試後如都無效，移除並重新\n\n安裝最新版Novell	qa_dataset.xlsx		[]	false	[]	11
+Excel設定自動存檔	檔案-選項-儲存，設定時間、路徑即可	qa_dataset.xlsx		[]	false	[]	12
+Excel歷史紀錄消失(Win7)	點選 開始程式集→空白處點一下→內容 →開始功能表 → 隱私權 打勾=顯示	qa_dataset.xlsx		[]	false	[]	13
+文件開啟顯示正在被使用、無法修改	1.進入電腦-組合管理-版面配置-詳細資料窗格取消勾選\n\n2.請PIC Dave將正在使用者剔除即可	qa_dataset.xlsx		[]	false	[]	14
+Powerpoint 顯示檔案遺失無法啟動	安裝微軟C++即可	qa_dataset.xlsx		[]	false	[]	15
+密碼過期，無法登入	詢問員工編號，請 PIC 解鎖，並告知密碼規則-英文大小寫+數字 8碼以上	qa_dataset.xlsx		[]	false	[]	16
+共用資料夾遺失	詢問員工編號，請 PIC 查詢存取權限，確認有權限後重新啟動Novell	qa_dataset.xlsx		[]	false	[]	17
+User反應無法登入Novell	將軟體移除重新安裝後已可登入	qa_dataset.xlsx		[]	false	[]	18
+誤刪共用資料夾內資料	資料夾右鍵選擇Salvage尋找被刪除的資料回復	qa_dataset.xlsx		[]	false	[]	19
+Excel特定檔存檔自動關閉	修復、重新安裝Office、更新測試後如都無效，移除並重新安裝最新版Novell	qa_dataset.xlsx		[]	false	[]	20
+MyReport PDF檔案無法開啟	將快顯封鎖關閉，下載IE Regedit即可	qa_dataset.xlsx		[]	false	[]	21
+Portal內程式無法開啟	確認IE設定，將IE顯示比例調整為100%	qa_dataset.xlsx		[]	false	[]	22
+打卡的icon消失	1.點選控制台→雙擊Java→檢視→選擇紅綠燈icon→滑鼠右鍵→選擇建立捷徑在桌面上\n\n2.若是在Java主控台裡沒有看到，則需到http://portal.wanhai.com/portal上登入選擇Menu分頁→PNL選項，展開 PNL 179 Sign On/Off 進行登錄即可	qa_dataset.xlsx		[]	false	[]	23
+打卡程式(PNL179)設定自動啟動	透過工作排成器自動啟動打卡程式	qa_dataset.xlsx		[]	false	[]	24
+萬海首頁無法正常顯示	將Proxy取消勾選，直接連線後即正常可用	qa_dataset.xlsx		[]	false	[]	25
+網頁無法正常顯示	確認IE相容性檢視設定，以一般檢視設定(100%)能正常	qa_dataset.xlsx		[]	false	[]	26
+Delay Notice於Outlook顯示亂碼	更改Outlook設定，將BIG-5更改為UTF-8即可	qa_dataset.xlsx		[]	false	[]	27
+IOS 10 Outlook無法收信	進入手機設定 Server設定tpefe01.wanhai.com、domain設定wanhai.com	qa_dataset.xlsx		[]	false	[]	28
+Outlook 無法新增帳號	將Windows Update更新至最新版本	qa_dataset.xlsx		[]	false	[]	29
+Outlook同時啟動不同帳號	使用ExtraOutlook輔助工具雙開Outlook2010即可	qa_dataset.xlsx		[]	false	[]	30
+Outlook使用一半，無預警閃退	ScanPST修復OST、PST檔	qa_dataset.xlsx		[]	false	[]	31
+群組郵件未收到	ScanPST修復OST、PST檔	qa_dataset.xlsx		[]	false	[]	31
+Outlook無法啟動，卡在驗證資料中	使用ScanPST將OST修復後即可正常開啟	qa_dataset.xlsx		[]	false	[]	32
+Outlook無法設定自動回覆	透過網頁啟動自動回覆功能	qa_dataset.xlsx		[]	false	[]	33
+Outlook郵件無法附件	移除Office2010重新安裝Office2010	qa_dataset.xlsx		[]	false	[]	34
+Outlook開啟緩慢、選取資料夾緩慢	協助將高容量PST分成小容量PST	qa_dataset.xlsx		[]	false	[]	35
+Outlook開新郵件過5~10就當機	使用MicrosoftEasyFix將Office修復後即可正常使用	qa_dataset.xlsx		[]	false	[]	36
+PST檔開啟顯示記憶體不足	更改系統內容-進階-設定-虛擬記憶體變更-自動管理分頁檔取消勾選，重新分配即可	qa_dataset.xlsx		[]	false	[]	37
+公共資料夾消失	左下角"資料夾清單"重新點開	qa_dataset.xlsx		[]	false	[]	38
+手機信件刪除無法跟電腦Outlook同步	協助下載Microsoft Outlook APP後即可正常刪除信件	qa_dataset.xlsx		[]	false	[]	39
+同步資料夾有錯誤訊息	取消Cache Mode,刪除OST File,連結Exchange. 關閉Outlook後,再啟用Cache Mode並連結Exchange	qa_dataset.xlsx		[]	false	[]	40
+取消Cache Mode後,不用p/w可看到上次登入狀態的信	停用離線功能	qa_dataset.xlsx		[]	false	[]	41
+信件在傳送或下載未同步時,滑鼠滾輪失效 (Windows XP)	取消畫面主題功能	qa_dataset.xlsx		[]	false	[]	42
+信箱Over Quota訊息不會出現	14.0.7106.5003版本解決	qa_dataset.xlsx		[]	false	[]	43
+設定後造成Outlook當掉,重開進入安全模式,正常後“收件匣”取代 Inbox, 其他Folder出現兩個, EX. Drafts & 草稿, Calendar & 行事曆	14.0.7106.5003版本解決	qa_dataset.xlsx		[]	false	[]	43
+設定時間發送的 Outbox 資料遺失	14.0.7106.5003版本解決	qa_dataset.xlsx		[]	false	[]	43
+信箱over size,清除信件回復後,Queue在Outbox中的信不會自動寄出	修改機碼解決\n\nKey: HKEY_CURRENT_USER\Software\Microsoft\Office\14.0\Outlook\Cached Mode \n\nDWORD: SendOne\n\nValue: 0	qa_dataset.xlsx		[]	false	[]	44
+部份信件進到垃圾信件資料夾	手動關閉Junk E-Mail功能	qa_dataset.xlsx		[]	false	[]	45
+單一設定檔內有兩組帳戶會出現Outlook閃退問題	將兩組帳戶分別設定為兩個設定檔	qa_dataset.xlsx		[]	false	[]	46
+無固定週期，無固定廠牌型號，無限定網路連線方式，發生手機刪除郵件無法同步	移除手機設定，重新設定帳戶	qa_dataset.xlsx		[]	false	[]	47
+郵件主旨無法顯示FW，RE	將主旨欄檢視設定重置後即可正常顯示	qa_dataset.xlsx		[]	false	[]	48
+郵件寄送失敗	將不存在收件者移除後即可重新寄送	qa_dataset.xlsx		[]	false	[]	49
+郵件被系統歸入"垃圾郵件"	確認黑/白名單設定	qa_dataset.xlsx		[]	false	[]	50
+開啟Outlook出現憑證問題	協助安裝舊版憑證	qa_dataset.xlsx		[]	false	[]	51
+開機時Outlook顯示錯誤	發現OST損壞，協助重新修復並請User協助觀察	qa_dataset.xlsx		[]	false	[]	52
+連線狀態顯示"就緒"，文件未能列印	排程卡住，將印表機電源關閉後等待5秒後再打開，重新列印即可	qa_dataset.xlsx		[]	false	[]	53
+印表機無法使用	10F複合機顯示禁止使用，重新開機也無法解決，電話詢問廠商斐先生為\n\n卡號輸入錯誤多次造成，等一段時間後即可重新使用	qa_dataset.xlsx		[]	false	[]	54
+彩色印表機列印顯示非法帳戶	確認是否有彩色印表機列印權限，若有將印表機電源關閉重啟，若無請User透過E-Flow申請權限	qa_dataset.xlsx		[]	false	[]	55
+彩色印表機無法列印	確認User是否有彩色列印權限，設定User員工編號	qa_dataset.xlsx		[]	false	[]	56
+掃描功能無法使用	將舊有網頁設定移除，重新設定掃描位置\n\nPS.設定時請關閉APM	qa_dataset.xlsx		[]	false	[]	57
+XP跟Win7不同系統列印顏色會有差別	列印產出模式不同而產出的顏色也不相同，調整XP印表機中\n\n列印喜好設定-影像處理-逼真色彩即可	qa_dataset.xlsx		[]	false	[]	58
+彩色印表機雙面列印卡紙、列印失敗	9F彩色印表機雙面列印設定如圖片	qa_dataset.xlsx		[]	false	[]	59
+Kyocera FS 2025D 列印少字	印表機列印設定選擇"透過影像方式列印"	qa_dataset.xlsx		[]	false	[]	60
+文件課印表機列印出現亂碼(門進去右邊第一台)	將同IP其它台印表機移除並重新安裝驅動程式重新設定，測試已無亂碼\n\nRicoh KD700HQ \n\nIP : 10.0.10.234\n\nPrinter Driver: Epson LQ-1070C\n\n紙張大小請選擇: “US Std Fanfold”	qa_dataset.xlsx		[]	false	[]	61
+文件課印表機列印亂碼	PIC安裝驅動後，一樣有亂碼問題沒解決，先以共用印表機方式給User使用	qa_dataset.xlsx		[]	false	[]	62
+E-Flow列印格式錯誤	確認User複製時是否有複製到空白區域，將空白區域刪除或重新複製即可	qa_dataset.xlsx		[]	false	[]	63
+E-Flow點選列印出現程式無回應	瀏覽器重新設定、更新Adobe Reader至最新即可	qa_dataset.xlsx		[]	false	[]	64
+CASP顯示錯誤 Error Code308	安裝FONT資料夾裡的字型即可	qa_dataset.xlsx		[]	false	[]	65
+E-Flow無法登入	先請User登入OWA可登入請User用同組密碼登入 E-Flow，若無法登入請Andy哥Reset Outlook密碼後協助User改密碼再用新密碼登入E-Flow	qa_dataset.xlsx		[]	false	[]	66
+Firefox 無法顯示Google、Yahoo等外部網頁	1.至控制台網→際網路選項→內容→憑證→受信任的根憑證授權單位，匯出Websense Public\n\n2.至Firefox→選項→隱私權與安全性→檢視憑證，匯入之前匯出的Websense Public憑證	qa_dataset.xlsx		[]	false	[]	67
+FTP檔案、圖片有誤	選擇二進位選項即可	qa_dataset.xlsx		[]	false	[]	68
+Googole瀏覽器無法出現Excel檔案	Googole Chrome 封鎖廣告視窗設定，允許該網址列白名單內	qa_dataset.xlsx		[]	false	[]	69
+IE無法開啟Https網頁	至控制台→網路網路選項→進階，將TLS全勾選即可	qa_dataset.xlsx		[]	false	[]	70
+Oracle IT環境設定	除Oracle6i須按照SOP安裝，9i、11g直接下一步到底即可	qa_dataset.xlsx		[]	false	[]	71
+PDF字體模糊	螢幕顯示字體過大，導致開啟字體模糊，重新設定螢幕大小後已正常	qa_dataset.xlsx		[]	false	[]	72
+PDF取消密碼保護	XP-將PDF密碼保護檔案拉至Google瀏覽器上開啟，重新儲存為PDF檔，密碼便會消失\n\nWin7-安裝最新版PDFCreator，於PDF上點選列印至PDFCreator印表機重新製作，密碼便會消失	qa_dataset.xlsx		[]	false	[]	73
+TurboNote(貼貼)無法選字	貼貼BUG，先點其它畫面再重新點該貼貼就可以選字	qa_dataset.xlsx		[]	false	[]	74
+TurboNote(貼貼)損壞	將儲存便條(Notes.tbs)保留，移除程式重新安裝即可	qa_dataset.xlsx		[]	false	[]	75
+Win7-Aero主題無法使用	重新安裝顯示卡驅動程式並重新啟動即正常	qa_dataset.xlsx		[]	false	[]	76
+左下角顯示桌面捷徑遺失	將工具列"快速啟動"勾選後已可使用	qa_dataset.xlsx		[]	false	[]	77
+本機密碼遺忘	進入ITSE將Mxxxx密碼重新設定，重新登入並勾選本機密碼與Novell密碼一樣即可	qa_dataset.xlsx		[]	false	[]	78
+作業系統升級	請User先將資料(我的最愛,我的文件,桌面)備份至"D槽"，IP、卡號、電腦名\n\n稱、PST先紀錄於TXT檔，升級完成在依舊有資料設定即可	qa_dataset.xlsx		[]	false	[]	79
+待機畫面異常，圖案顯示異常	驅動程式未更新導致，重新更新後已可正常顯示	qa_dataset.xlsx		[]	false	[]	80
+船舶管理課共用資料夾(10.0.51.124)無法登入	與KY WU確認密碼後，將舊有連線中斷，登入可使用捷徑，重新輸入帳號、密碼即可	qa_dataset.xlsx		[]	false	[]	81
+無法使用遠端連線	以管理者權限登入或使用BAT檔更改IP後使用	qa_dataset.xlsx		[]	false	[]	82
+登入APM後Portal程式無法使用，網路DNS跳掉	安裝BIGIPEdgeClient_DNS_Relay_Proxy即可。	qa_dataset.xlsx		[]	false	[]	83
+視窗會有關閉檔案殘影	將顯示卡驅動程式重新安裝，並進入我的電腦-系統內容-進階-效能設定，依圖片設定	qa_dataset.xlsx		[]	false	[]	84
+開機至登入畫面後重新開機(循環)	1.開機後按F8進入進階選單，選擇上次的正確設定\n\n2.用本機登入後移除ENDPOINT\n\n3.安裝KB3033929後重新開機\n\nPS.如更新無法安裝，至電腦管理→服務與應用程式→服務，啟用Background Intelligent Transfer Serviceru與Windows Update及可	qa_dataset.xlsx		[]	false	[]	85
+開機鍵盤NumLock設定自動啟動	透過"Regedit"設定 \Keyboard\InitialKeyboardIndicators 將設定值改為"2"即可	qa_dataset.xlsx		[]	false	[]	86
+新注音選字亂跳	將新注音內辭典設定全數刪除後重新勾選即可	qa_dataset.xlsx		[]	false	[]	87
+PORT CODE /DOOR CODE/FEEDER VSL CODE 建置及問題可找誰	可詢問 IT VIVIHUANG 分機7264	qa_dataset.xlsx		[]	false	[]	88
+年終發多少	3個月	qa_dataset.xlsx		[]	false	[]	89
+公司發多少	六個月	qa_dataset.xlsx		[]	false	[]	90
+可發多少	不要太期待喔.	qa_dataset.xlsx		[]	false	[]	91
+今年發多少	包君滿意	qa_dataset.xlsx		[]	false	[]	92
+可領多少	10 萬	qa_dataset.xlsx		[]	false	[]	93
+IT 最可愛的人是誰	IT 所有女生都可愛	qa_dataset.xlsx		[]	false	[]	94
+最漂亮是誰	vivi	qa_dataset.xlsx		[]	false	[]	95
+最認真是誰	vivi	qa_dataset.xlsx		[]	false	[]	95
+最賢慧是誰	vivi	qa_dataset.xlsx		[]	false	[]	95
+最勤勞是誰	vivi	qa_dataset.xlsx		[]	false	[]	95
+Request your good end to pls help to restore the data.	需至e-flow 申請,可參考 outlook --> 公用資料夾/IT Q&A /Eflow/Simple Flow-SOP /申請歷史資料回復SOP 	qa_dataset.xlsx		[]	false	[]	96
+Could you please assist restore 2012 year MFT historic data.	需至e-flow 申請,可參考 outlook --> 公用資料夾/IT Q&A /Eflow/Simple Flow-SOP /申請歷史資料回復SOP 	qa_dataset.xlsx		[]	false	[]	96
+抱歉打擾了，請協助幫忙restore BL: A074A08762到測試機上，以供越南海關檢查。	需至e-flow 申請,可參考 outlook --> 公用資料夾/IT Q&A /Eflow/Simple Flow-SOP /申請歷史資料回復SOP 	qa_dataset.xlsx		[]	false	[]	96
+開啓discoverer plus 畫面反白	PC 需要設定.依看SOP	qa_dataset.xlsx		[]	false	[]	97
+discoverer plus log 無反應,只出現反白框	PC 需要設定.依看SOP	qa_dataset.xlsx		[]	false	[]	97
+Please assist to check as  Below Discoverer Plus can’t open report in mr.edman sirs pc. \nshows java plug in screen without error:	PC 需要設定.依看SOP	qa_dataset.xlsx		[]	false	[]	97
+Discoverer plus 使用手冊	有SOP 	qa_dataset.xlsx		[]	false	[]	98
+無法開啓要求的工作表,BIB-10310 發生不明的異常狀況	請找IT VIVI OR PEGGY 協助開放讀取該系統的權限.	qa_dataset.xlsx		[]	false	[]	99
+我已經申請程式了,但仍然看不到程式的MENU	請把WDSEC116 程式打開,輸入申請單號,看Apply Status 是否已經是ok 的狀態來判定程式是否已經批核完畢了(請參照圖示說明)	qa_dataset.xlsx		[]	false	[]	100
+我已經申請程式,系統種子人員也批核了,但為何還是看不到程式	請按鍵盤的F5 重新刷新MENU,如再不行請致電郵SEC_SUPPORT@WANHAI.COM	qa_dataset.xlsx		[]	false	[]	101
+如何使用WDSEC116 申請程式	請參閱WDSEC116 Menu 旁的User Guide,如仍有問題,請電郵至 sec_support@wanhai.com	qa_dataset.xlsx		[]	false	[]	102
+為何無法申請其他部門的job code	PNL 所屬的部門課別/Job code 不能透過wdsec116 來申請	qa_dataset.xlsx		[]	false	[]	103
+代表大更換時,要如何協助代表早日得到新的程式授權	先行詢問代表要的程式,用WDSEC116 單支申請	qa_dataset.xlsx		[]	false	[]	104
+如何大量申請給予同部門or 同課別的程式	請使用WDSEC116 + WDSEC122 批次申請作業,或者是在申請WDSEC116 時勾選 Apply to WHOLE Division or Apply to WHOLE Department(請參照圖示說明)	qa_dataset.xlsx		[]	false	[]	105
+非萬海體系的員工離職時,該如何處理	請使用WDSEC115 申請DROP USER ACCOUNT 的作業,SEC Support 會批核	qa_dataset.xlsx		[]	false	[]	106
+忘記密碼要如何reset	(請參照圖示說明)	qa_dataset.xlsx		[]	false	[]	107
+如何更改密碼	(請參照圖示說明)	qa_dataset.xlsx		[]	false	[]	107
+我使用Lost pwd 一直收不到新密碼	請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	108
+請問我雖然是批核AMS/CMS 系統的種子人員,但某支特殊的AMS 程式,需要由另外兩位特殊部門的人來批核,要如何做	請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	108
+有人育嬰假留停回來,請問帳號要如何重新開啟	請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	108
+發現帳號被鎖住,該如何處理	請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	108
+如何更改系統的USER_NAME 名稱	請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	108
+派遣人員的帳號由誰申請	請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	108
+提示帳號不存在，麻煩您幫忙處理下	請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	108
+請問系統種子人員有異動要請誰修正	請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	108
+我的程式今天早上突然不見了	請確認您的職務是否有做過組織異動,如果是,為了資安考量,舊有的組織程式將會被移除,系統會自動給予新組織的程式,如仍有疑問請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	109
+我的PNL 組織有異動,但我又想使用之前部門組織的程式,要如何做	為了資安考量,如果您已經交接完畢,仍還須使用之前部門組織的程式,煩請使用WDSEC116 單支程式申請作業,相關的系統種子人員會確認批核	qa_dataset.xlsx		[]	false	[]	110
+USER 反應有這支程式的權限,但MENU 看不到	檢查WDSEC104 OnlyUsedInOffice 的設定 ,是否有特殊限制,如果沒有,請清cash 再登錄看看	qa_dataset.xlsx		[]	false	[]	111
+當程式已經授權了,但CN /HK User 仍然無法看到	TPE <-> SZP 的DB 有做snap 需要等上30 分鐘,如過了30分鐘之後,仍未有程式,請電郵sec_support@wanhai.com 協助	qa_dataset.xlsx		[]	false	[]	112
+代理行User code 要如何申請	需填寫WHL System ID Application Form - non_WHL office.xls,並且請當地代表批核,當申請WDSEC115 時須檢附附上(請參照檔案說明)	qa_dataset.xlsx		[]	false	[]	113
+我想要申請5支AMS,7支CMR 的程式要如何申請	盡量避免單支單支申請,盡量用job code 或者是pnl 的job code,避免未來組織異動時,仍需要再申請一次,可以先透過WDSEC206 這支程式先行去看要申請那個JOB CODE合宜	qa_dataset.xlsx		[]	false	[]	114
+我有一支程式上線,需要開給全OFFICE 的人使用	由於這是屬於較大的權限設定,請電郵至sec_support@wanhai.com,請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	115
+老闆突然要某位同仁不能使用業績報表的程式,而且不能讓此位同仁發現	由於這是屬於較隱密性的設定,請電郵至sec_support@wanhai.com,請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	116
+請問SEC 正式機和測試機帳號有同步嗎	沒有	qa_dataset.xlsx		[]	false	[]	117
+請問我發現我的SEC MAIL 很奇怪,想改成自己的Google mail 可以嗎,要如何做	可以,請使用WDSEC114 自行更正	qa_dataset.xlsx		[]	false	[]	118
+請問我申請WDSEC116,並且也填入了程式,但準備要Apply 時出現 Unnecessary Application 這是什麼問題	這個表示您已經有程式了,無須再申請,煩請將此單cancel	qa_dataset.xlsx		[]	false	[]	119
+有一個新的depot 要申請新的帳號流程為何	請先填寫depot 相關的資訊,電郵至sec_support@wanhai.com,請SEC Support 向海外文件業務組提出需求建置相關的office code,(請參照圖示說明),然後才能進行後續的帳號申請-填寫WHL System ID Application Form - non_WHL office.xls	qa_dataset.xlsx		[]	false	[]	120
+我已經有程式了,但是打開程式仍然出現沒權限,是什麼問題	請告知使用那一支程式,並且電郵至sec_support@wanhai.com,請SEC Support 幫忙,因為有些MFT程式需要再額外做另外的權限內部設定,或者如果已經可以登入程式,但程式顯示沒權限,可以直接電郵相關的系統PIC 處理,此處已不是SEC 的程式授權問題	qa_dataset.xlsx		[]	false	[]	121
+我準備要進行年度種子人員程式查核,但需要執行500個USER 的權限刪除,請問要如何做	由於這是屬於較多的權限異動,如使用WDSEC116 申請,可能需花費耗時,100個USER 以上的程式異動申請,請電郵至sec_support@wanhai.com,請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	122
+當建置一個新的帳號,default pwd 為何	wanhai888	qa_dataset.xlsx		[]	false	[]	123
+請問如果有人離職,sec 帳號何時會自動刪除	萬海系統的員工,為離職日當天的24:00 自動刪除,非萬海系統員工請申請wdsec115 drop,sec support 會協助批核	qa_dataset.xlsx		[]	false	[]	124
+請問我收到這個WDSEC118 Grant/Revoke Jobs Completed, user=CN25000117, ID=61122 是什麼意思	這代表您剛才透過WDSEC116 申請的程式已經全部批核完畢	qa_dataset.xlsx		[]	false	[]	125
+請問如何知道我申請的程式,已經完全批核完畢	請到WDSEC116,Query 出APPLY_ID 單號,如果Status 上顯示OK,則表示已經全部批核完畢(請參照圖示說明)	qa_dataset.xlsx		[]	false	[]	126
+我可以正常使用WHL Portal 帳號,但想要用另外一個人的帳號登入,就無法登入	如果需要用另外一個人的帳號登入使用的話,要在IE 選擇 檔案--> 新增工作階段 才可以	qa_dataset.xlsx		[]	false	[]	127
+請問我想建置一個新的JOB CODE 要由誰建置	初始的一個新的JOB CODE 請電郵至sec_support@wanhai.com 請SEC Support 協助	qa_dataset.xlsx		[]	false	[]	128
+請問我沒有某支PNL 的程式,但無法用WDSEC116 申請	PNL 屬於獨立的系統,不能使用WDSEC116 申請,煩請聯繫管理部	qa_dataset.xlsx		[]	false	[]	129
+請問我更改密碼,但是為何還是不能登入MOTP	由於我們密碼同步的時間為1個小時,建議您透過Portal 的 Lost pwd 更改密碼之後,需等上一個小時再用新的密碼登入MOTP 方可使用	qa_dataset.xlsx		[]	false	[]	130
+請問我看了WDSEC116 Menu旁的User guide,還是看不懂怎麼辦	煩請參閱簡易手冊版	qa_dataset.xlsx		[]	false	[]	131
+我使用WDSEC116 的程式,申請WDSAS603 的程式,為何會出現這樣的指示-To grant SAS confidential programs need your Rep's commitment and then forward to us.	這表示申請SAS 特殊的程式(e.g WDSAS603) 需要得到長官的批核,至於長官的批核信件就是申請者在申請WDSEC116 之後,需要再額外檢附一封長官批可以使用wdsas603 的 mail 給SAS 的pilot user,這樣種子人員才會幫您批核	qa_dataset.xlsx		[]	false	[]	132
+超過多久沒有使用WHL Portal,帳號會被lock	超過3個月,但是現在在帳號即將被鎖的第75天,第85天,會mail 預先通知,如仍要使用的話,請照程序登入Portal,避免帳號被鎖住(請參照圖示說明)	qa_dataset.xlsx		[]	false	[]	133
+為什麼萬海的新人帳號還沒使用就會被鎖住	新帳號5天未登入會被鎖,請盡速登入使用,如需解鎖請電郵至 sec_support@wanhai.com	qa_dataset.xlsx		[]	false	[]	134
+有什麼方法可以擁有負責系統的所有程式	只要您是系統pic,並且請SEC Support 加入到系統pic 的設定檔中,就會自動給予所有此系統的程式(含Oracle程式	qa_dataset.xlsx		[]	false	[]	135
+如果我只是想要某段時間代理某人的一支程式有辦法嗎	煩請電郵SEC_SUPPORT@WANHAI.COM 在WDSEC126 中幫您設定	qa_dataset.xlsx		[]	false	[]	136
+請問USER 是萬春的主管,要申請Portal,需要上電子公文嗎	需填寫WHL System ID Application Form - non_WHL office.xls,並且請當地代表批核,當申請WDSEC115 時須檢附附上	qa_dataset.xlsx		[]	false	[]	137
+我的PORTAL MENU選單，AMS系統唯獨少了WDAMS106這支程式我應是設定為AMS/CMS PIC，應該所有程式都有不是嗎，why 會少了那支 ??	煩請電郵SEC_SUPPORT@WANHAI.COM ,幫您查查是否有針對此支程式做了授權的移除	qa_dataset.xlsx		[]	false	[]	138
+代理行帳號問題無法使用MOTP	請先和硬體組確認此帳號是用手機註冊還是EMAIL 註冊,不然就算帳號正確也無法使用	qa_dataset.xlsx		[]	false	[]	139
+我用WDSEC116 申請了,但一直沒人幫我批核	請到WDSEC116,Query 出APPLY_ID 單號,然後請參閱SOP 去看是那位種子人員需要批核	qa_dataset.xlsx		[]	false	[]	140
+代理行的帳號突然不見了	請電郵至sec_support@wanhai.com 請SEC Support 協助,看是帳號太久沒登入,被鎖住還是已經被移除了	qa_dataset.xlsx		[]	false	[]	141
+員工崗位異動，Job Code & 新舊兩部門的相關程式是否可在交接期並行？交接期結束再回收舊崗位之相關程式權限?	為了資訊安全考量-1. 交接期間,使用者可以先行使用wdsec116 進行copy 權限,(例如要交接那個程式就申請那個程式,或者copy 交接人的程式)2. 等到職務生效日之後,之前交接期間申請的程式就會再被移除,但這時後面的交接者則應會自動擁有組織權限內的程式如有特殊程式沒有的話,可以再透過wdsec116 申請	qa_dataset.xlsx		[]	false	[]	142
+如何知道代理行的帳號是否還存在	請到WDSEC202確認帳號狀態,如為空白則表示已經被移除,需重新申請帳號	qa_dataset.xlsx		[]	false	[]	143
+能否再幫忙協助確認一下，目前我進系統裡要批運費比如INBLR 01目前有三筆運費待批核，但我條件設定如下按下approve , 他顯示出來的是no record, 能否再幫忙確定一下是不是我的權限又有問題呢	抱歉此為運費批核系統,應該要致電XXX 系統負責人	qa_dataset.xlsx		[]	false	[]	144
+請問我每天都一直收到WDSEC118 Outstanding Grant Web Prog WDSKD127", ID=138887 的信要如何解除	這個是在提醒您要去批核WDSEC118 For WDSKD127 FROM USER 的申請單	qa_dataset.xlsx		[]	false	[]	145
+請問我一直收到這個系統信件是什麼意思-WDSEC116 Pending Grant/Revoke Jobs, User=M9308, ID=138677	這是在說您有登入申請WDSEC116,但未按Apply 將單子送出,如果這筆申請無需要了,也煩請Cancel 申請	qa_dataset.xlsx		[]	false	[]	146
+我想申請程式	請使用WDSEC116 申請	qa_dataset.xlsx		[]	false	[]	147
+請問要如何申請程式	請使用WDSEC116 申請	qa_dataset.xlsx		[]	false	[]	147
+請問怎樣申請程式	請使用WDSEC116 申請	qa_dataset.xlsx		[]	false	[]	147
+請問怎樣申請程式?	請使用WDSEC116 申請	qa_dataset.xlsx		[]	false	[]	147
+Kindly assist to add below Discoverer Report to Username “WINBOM01”	煩請聯絡Discoverer PIC vivi_huang@wanhai.com	qa_dataset.xlsx		[]	false	[]	148
+系統無法上去	請具體說明是那個系統無法上去,方便協助釐清問題	qa_dataset.xlsx		[]	false	[]	149
+如果要申請新系統流程要怎樣走?? 發mail請主管同意?	對的,請電郵至sec_support@wanhai.com	qa_dataset.xlsx		[]	false	[]	150
+請問如何查系統PIC 是誰.	請連結PORTAL 首頁,至NEWS -> 查AP System PIC List (http://portal.wanhai.com/UserGuide/PUB/htmlpage/a90916inchargelist.htm)	qa_dataset.xlsx		[]	false	[]	151
+請問我想知道IT系統負責人該怎麼做?	請連結PORTAL 首頁,至NEWS -> 查AP System PIC List (http://portal.wanhai.com/UserGuide/PUB/htmlpage/a90916inchargelist.htm)	qa_dataset.xlsx		[]	false	[]	151
+請問有緊急問題可以找誰?	請連結PORTAL 首頁,至NEWS -> 查24小時緊急連絡電話 (http://portal.wanhai.com/UserGuide/PUB/htmlpage/Reptrain/others.htm)	qa_dataset.xlsx		[]	false	[]	152
+有緊急狀況要打哪支電話?	請連結PORTAL 首頁,至NEWS -> 查24小時緊急連絡電話 (http://portal.wanhai.com/UserGuide/PUB/htmlpage/Reptrain/others.htm)	qa_dataset.xlsx		[]	false	[]	152
+No detail data! Please enter Role/Program in detail block	這表示您沒有在WDSEC116 裡面輸入需要申請的程式,如果您選擇是REF User(copy 另外一個人的程式的話),那就表示\n\n另外一個人的程式沒有需要copy 的(This information means no data need to copy that,thanks.)	qa_dataset.xlsx		[]	false	[]	153
+我已連線成功,   但是要進萬海系統進不去	登入第一關APM系統請用萬海Portal密碼就可以了,兩個(APM & 萬海Portal登入的帳號密碼系統會於一小時自動同步一次	qa_dataset.xlsx		[]	false	[]	154
+我想要申請IAL 的程式,該如何申請	由於IAL 的程式,並還沒有WDSEC116 可以申請,煩請直接電郵給IAL 的I.T\n\nmark.lai@interasialine.com;nero.hung@interasialine.com; alex.wang@interasialine.com	qa_dataset.xlsx		[]	false	[]	155
+請問怎樣申請程式?	由於IAL 的程式,並還沒有WDSEC116 可以申請,煩請直接電郵給IAL 的I.T\n\nmark.lai@interasialine.com;nero.hung@interasialine.com; alex.wang@interasialine.com	qa_dataset.xlsx		[]	false	[]	155
+如何申請程式?	由於IAL 的程式,並還沒有WDSEC116 可以申請,煩請直接電郵給IAL 的I.T\n\nmark.lai@interasialine.com;nero.hung@interasialine.com; alex.wang@interasialine.com	qa_dataset.xlsx		[]	false	[]	155
+請問一下厄瓜多當地同事Mayra ECMADA8今早登入系統時發現所需工作程式與以往不同\n可否請教一下是否是哪裡有問題?	請先確認此USER 的 PNL 系統的部門課別是否有異動,如有異動為了資訊安全考量,會將其原先部門的程式刪除\n\n如果需要,煩請使用WDSEC116 重新申請,或電郵 sec_support@wanhai.com	qa_dataset.xlsx		[]	false	[]	156
+今早CN190111 登錄WEB 提示更新密碼，更新密碼成功後登入WEB ，打開的SWING 程序只能輸入舊密碼才能登錄，新密碼提示無效	請約一個小時之後再測,swing program 也有帳號密碼同步的問題	qa_dataset.xlsx		[]	false	[]	157
+我去WDCMS102 加User 的授權,會出現 'The areaCode doesn't exist!,該如何處理	必須要先去WDMFT382建area_code_head，才能在WDCMS101建area_code，最後才能用WDCMS102加area_code給user\n\nWDMFT382 的area-code_head 要由I.T Welson 負責建置	qa_dataset.xlsx		[]	false	[]	158
