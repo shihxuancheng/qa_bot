@@ -2,3 +2,4 @@ dialogflow==0.6.0
 interval==1.0.0
 requests==2.22.0
 beautifulsoup4==4.7.1
+flask==1.0.3

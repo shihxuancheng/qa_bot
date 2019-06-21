@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup as bs
 
 base_url='http://family.wanhai.com'
 loginURL = base_url + '/Login.jsp'
-account=''
-password=''
+account='M1933'
+password='1933Whlm'
 payload = {'Account': account,'Password': password}
 meeting_rooms = None
 massage_rooms = None
@@ -16,7 +16,7 @@ session_req.post(loginURL,data=payload)
 #%%
 def login(id,pw):
     global session_req
-    if session_req == Nothing:
+    if session_req == None:
         session_req=requests.Session()
     session_req.post(loginURL,data={'Account': account,'Password': password})
 
@@ -204,8 +204,6 @@ def listRentedEquips():
     return rentedList   
 
 #%%
-# bookingEquip('CF03-9F','MEETING','20190606','1800','1900')
-# cancalBookingEquip('MEETING','352048')
 listRentedEquips()
 
 #%%
@@ -214,9 +212,9 @@ print(getEquipName(equipId))
 inUsed = isEquipInUsed('20190606','1900','2000','MEETING',equipId)
 print('Equip in used? {}'.format(inUsed))                                                              
 #%%
-search_available_equips('MEETING','20190606','1400','1600')
+search_available_equips('MEETING','20190617','1400','1600')
 #%%
-search_available_time('MEETING','CF01-9F','20190606')
+search_available_time('MEETING','CF01-9F','20190617')
 
 #%%
 if not isLogin():
