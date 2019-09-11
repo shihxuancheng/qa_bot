@@ -8,6 +8,11 @@ from queue import Queue
 app = Flask(__name__)
 
 result = None
+
+@app.route('/')
+def sayHi():
+    return 'Hello World1!!!'
+
 @app.route("/short_call",methods=['GET','POST'])
 def five_secend_call():
     global result

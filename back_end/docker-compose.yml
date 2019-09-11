@@ -1,0 +1,26 @@
+version: "3.2"
+
+services:
+  www_proxy:
+    container_name: www_proxy 
+    image: wernight/ngrok
+    networks:
+      - backend
+    depends_on:
+      - www_backend
+    ports:
+      - "4040:4040"
+    environment:
+      NGROK_AUTH: 326sUdHt1VQm92Y1ckLij_PMvbX8hA6v59QpB6tY8S
+      NGROK_PORT: "app:8080"
+      NGROK_REGION: ap
+    # command: ngrok http www_backend:8080
+  
+  www_backend:
+    container_name: app
+    image: shihxuancheng/qa_bot
+    networks:
+      - backend
+
+networks: 
+  backend:
