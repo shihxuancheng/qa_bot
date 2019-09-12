@@ -11,7 +11,7 @@ result = None
 
 @app.route('/')
 def sayHi():
-    return 'Hello World1!!!'
+    return 'Hello World!!!'
 
 @app.route("/short_call",methods=['GET','POST'])
 def five_secend_call():
@@ -27,15 +27,6 @@ def five_secend_call():
             time.sleep(0.3)
     return jsonify({"respone":"None"})
 
-@app.route('/qa_bot/fulfillment', methods=['GET', 'POST'])
-def index():
-    jsonObj = request.get_json()
-    # print(type(jsonObj))
-    # print(jsonObj)
-    print('responseId => {},\n session => {}'.format(jsonObj.get('responseId'),jsonObj.get('session')))
-    print(request.get_data(as_text=True))
-    return sample_response()
-
 def fetch_url():
     global result
     my_headers = {'Authorization': 'EndpointKey 365cdd9c-7af2-48bd-9dfe-031986319115','Content-Type':'application/json'}
@@ -46,10 +37,37 @@ def fetch_url():
     result = res
     return res
 
-def sample_response():
+@app.route('/qa_bot/fulfillment', methods=['GET', 'POST'])
+def index():
+    jsonObj = request.get_json()
+    # print(type(jsonObj))
+    # print(jsonObj)
+    # print('responseId => {},\n session => {}'.format(jsonObj.get('responseId'),jsonObj.get('session')))
+    # print(request.get_data(as_text=True))
+    try:
+        handleName = jsonObj.get('queryResult').get('intent')['displayName']
+        print('Handler:',handleName)
+        
+        return eval(handleName+'()')
+    except:
+        return sample_response('找不到對應的fulfillment handler!!!')
+
+def buying_drink_ask_category():
+    drinkCate = fulfillment.get('queryresult').get('parameters')['drink_category']
+    print('Category: ',drinkCate)
+    if drinkCate == '咖啡':
+        return sample_response('美式、拿鐵還、卡布奇諾')
+    elif drinkCate == '茶':
+        return sample_response('紅茶、綠茶、烏龍茶')
+    elif drinkCate == '果汁':       
+        return sample_response('芒果汁、檸檬汁、芭樂汁') 
+     
+    return sample_response('you got it')        
+
+def sample_response(text_content):
     strRes = ''
     jsonResp = {
-        'fulfillmentText':'超級帥哥Richard',
+        'fulfillmentText': text_content,
         'fulfillmentMessages': [
             # {
             #     'image' : {
@@ -76,12 +94,12 @@ def sample_response():
     }
     return jsonify(jsonResp)
 
+
 def main():
     port = os.environ.get('FLASK_EXPOSE_PORT')
     port = port if port != None else 8080
     app.config['JSON_AS_ASCII'] = False
     app.run(host='0.0.0.0', port=port, debug=True)
-
 
 if __name__ == '__main__':
     main()
