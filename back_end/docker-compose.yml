@@ -18,6 +18,7 @@ services:
   
   www_backend:
     container_name: app
+    build: ./
     image: shihxuancheng/qa_bot
     networks:
       - backend
