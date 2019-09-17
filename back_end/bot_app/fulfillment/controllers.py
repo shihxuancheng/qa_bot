@@ -1,21 +1,29 @@
 import os
-from flask import Flask, jsonify, request, json
+from flask import Blueprint, Flask, jsonify, request, json
 import threading
 import time
 import requests
 from queue import Queue
 
-app = Flask(__name__)
+# app = Flask(__name__)
+fulfillment = Blueprint('fulfillment',__name__,url_prefix='/qa_bot/fulfillment')
 
 result = None
 
 
-@app.route('/')
-def sayHi():
-    return 'Hello World!!!'
+@fulfillment.route('/',methods=['GET', 'POST'])
+def index():
+    jsonObj = request.get_json()
+    try:
+        handleName = jsonObj.get('queryResult').get('intent')['displayName']
+        print('Handler:', handleName)
+
+        return eval(handleName + '(jsonObj)')
+    except:
+        return sample_response('找不到對應的fulfillment handler!!!')
 
 
-@app.route("/short_call", methods=['GET', 'POST'])
+@fulfillment.route("/short_call", methods=['GET', 'POST'])
 def five_secend_call():
     global result
     result = None
@@ -41,18 +49,6 @@ def fetch_url():
     print(res.json())
     result = res
     return res
-
-
-@app.route('/qa_bot/fulfillment', methods=['GET', 'POST'])
-def index():
-    jsonObj = request.get_json()
-    try:
-        handleName = jsonObj.get('queryResult').get('intent')['displayName']
-        print('Handler:', handleName)
-
-        return eval(handleName + '(jsonObj)')
-    except:
-        return sample_response('找不到對應的fulfillment handler!!!')
 
 # 確認訂單
 def buying_drink_ordering_summary(fulfillment):
@@ -166,10 +162,11 @@ def lookup_context(fulfillment,lookup_pattern):
     return next((x for x in contexts if x['name']== search_key),None)
 
 def main():
-    port = os.environ.get('FLASK_EXPOSE_PORT')
-    port = port if port != None else 8080
-    app.config['JSON_AS_ASCII'] = False
-    app.run(host='0.0.0.0', port=port, debug=True)
+    pass
+    # port = os.environ.get('FLASK_EXPOSE_PORT')
+    # port = port if port != None else 8080
+    # app.config['JSON_AS_ASCII'] = False
+    # app.run(host='0.0.0.0', port=port, debug=True)
 
 if __name__ == '__main__':
     main()
