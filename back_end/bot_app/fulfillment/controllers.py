@@ -1,30 +1,32 @@
 import os
 import bot_app.fulfillment.utility as util
 import bot_app.fulfillment.buying_drink as buying_drink
+import bot_app.fulfillment.system_pic as system_pic
+import bot_app.fulfillment.whl_family as whl_family
 from flask import Blueprint, Flask, jsonify, request, json
 import threading
 import time
 import requests
 from queue import Queue
 
-
 # app = Flask(__name__)
-fulfillment = Blueprint('fulfillment',__name__,url_prefix='/qa_bot/fulfillment')
+fulfillment = Blueprint('fulfillment', __name__, url_prefix='/qa_bot/fulfillment')
 
 result = None
 
 
-@fulfillment.route('',methods=['GET', 'POST'])
+@fulfillment.route('', methods=['GET', 'POST'])
 def index():
     jsonObj = request.get_json()
     try:
         handleName = jsonObj.get('queryResult').get('intent')['displayName']
         print('Handler:', handleName)
-        
+
         return eval(handleName + '(jsonObj)')
     except Exception as e:
         print(str(e))
-        return util.sample_response(str(e))
+        return util.simple_response(str(e))
+
 
 @fulfillment.route("/short_call", methods=['GET', 'POST'])
 def five_secend_call():

@@ -14,4 +14,4 @@ def index():
 
 @app.route('/test')
 def test():
-    return util.sample_response('Hello World Test!!')
+    return util.simple_response('Hello World Test!!')

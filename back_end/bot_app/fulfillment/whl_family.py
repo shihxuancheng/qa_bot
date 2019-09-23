@@ -1,4 +1,3 @@
-
 # %%
 import requests
 from bs4 import BeautifulSoup as bs
@@ -6,30 +5,29 @@ from bs4 import BeautifulSoup as bs
 base_url = 'http://family.wanhai.com'
 loginURL = base_url + '/Login.jsp'
 account = 'M1933'
-password = '1933whlM'
+password = 'Whlm1933'
 payload = {'Account': account, 'Password': password}
 meeting_rooms = None
 massage_rooms = None
 session_req = None
+
+
 # session_req.post(loginURL,data=payload)
 
 # %%
-
-
 def login(id, pw):
     global session_req
-    if session_req == None:
+    if session_req is None:
         session_req = requests.Session()
     res = session_req.post(
         loginURL, data={'Account': account, 'Password': password})
     print(res.request.headers['Cookie'])
 
+
 # %%
-
-
 def isLogin():
     global session_req
-    if session_req == None:
+    if session_req is None:
         session_req = requests.Session()
     route_url = base_url + '/MainPage.jsp'
     res = session_req.get(route_url, allow_redirects=False)
@@ -39,13 +37,12 @@ def isLogin():
     else:
         return False
 
+
 # %%
-
-
 def getEquipList(type='MEETING'):
     equipList_url = base_url + '/LeaseEquip/equipListOnePage.jsp'
     result = session_req.get(
-        equipList_url+'?file_num=61621&account_id=' + account + '&equip_type='+type)
+        equipList_url + '?file_num=61621&account_id=' + account + '&equip_type=' + type)
     print(result.request.headers['Cookie'])
 
     soup = bs(result.text, 'html.parser')
@@ -56,9 +53,8 @@ def getEquipList(type='MEETING'):
     # print(equipDict)
     return equipDict
 
+
 # %%
-
-
 def getEquipName(equipId):
     if equipId in meeting_rooms.keys():
         return meeting_rooms[equipId]['name']
@@ -67,15 +63,14 @@ def getEquipName(equipId):
     else:
         return None
 
+
 # %%
 # 查詢設備是否已被占用(by 特定日期/時段)
-
-
 def isEquipInUsed(b_date, b_time, e_time, equip_type, equip_id):
     if equip_type == 'MASSAGE':
         print('Not Support Now!!!')
         return False
-    equipUsageURL = base_url+'/LeaseEquip/equipUsage.jsp'
+    equipUsageURL = base_url + '/LeaseEquip/equipUsage.jsp'
     payload = [('q_from_date', b_date),
                ('q_from_time', b_time),
                ('q_to_date', b_date),
@@ -91,16 +86,15 @@ def isEquipInUsed(b_date, b_time, e_time, equip_type, equip_id):
         return False
     return False
 
+
 # %%
-# 查詢設備可用時段(by 特定日期)
-
-
+# 查詢設備可用時段(by 特定日期
 def search_available_time(equip_type, equip_id, strDate):
     if equip_type == 'MASSAGE':
         print('Not Support Now!!!')
         return
     from interval import Interval
-    equipUsageURL = base_url+'/LeaseEquip/equipUsage.jsp'
+    equipUsageURL = base_url + '/LeaseEquip/equipUsage.jsp'
     payload = [('q_from_date', strDate),
                ('q_from_time', ''),
                ('q_to_date', strDate),
@@ -112,16 +106,15 @@ def search_available_time(equip_type, equip_id, strDate):
     # print(soup.prettify())
     print('{}:\n{}'.format(equip_id, soup.select('td[nowrap]')[0].text))
 
+
 # %%
 # 查詢可用設備(by 特定日期/時段)
-
-
 def search_available_equips(equip_type, strDate, b_time, e_time):
     if equip_type == 'MASSAGE':
         print('Not Support Now!!!')
         return
     from interval import Interval
-    equipUsageURL = base_url+'/LeaseEquip/equipUsage.jsp'
+    equipUsageURL = base_url + '/LeaseEquip/equipUsage.jsp'
     payload = [('q_from_date', strDate),
                ('q_from_time', ''),
                ('q_to_date', strDate),
@@ -142,7 +135,7 @@ def search_available_equips(equip_type, strDate, b_time, e_time):
         target = Interval(int(b_time), int(e_time), closed=False)
         periods = [x.text.split('~') for x in elem.select('b')]
         periodIntvs = [Interval(x[0], x[1]) for x in list(
-            map(lambda bb:[int(x) for x in bb], periods))]
+            map(lambda bb: [int(x) for x in bb], periods))]
 
         # print(equips[index])
         # for pp in periodIntvs:
@@ -158,10 +151,9 @@ def search_available_equips(equip_type, strDate, b_time, e_time):
         if avail == 1:
             print('{}\n'.format(equips[index]))
 
+
 # %%
 # 預約設備
-
-
 def bookingEquip(equip_id, equip_type, strDate, b_time, e_time):
     if equip_type == 'MASSAGE':
         print('Not Support Now!!!')
@@ -196,10 +188,9 @@ def bookingEquip(equip_id, equip_type, strDate, b_time, e_time):
     print(soup.select('table tr:nth-child(2) td:nth-child(5)')[0].text)
     # print(soup.prettify())
 
+
 # %%
 # 取消預約設備
-
-
 def cancalBookingEquip(equip_type, rent_no):
     if equip_type == 'MASSAGE':
         print('Not Support Now!!!')
@@ -221,14 +212,13 @@ def cancalBookingEquip(equip_type, rent_no):
     soup = bs(session_req.post(bookingURL, data=payload).text, 'html.parser')
     print(soup.prettify())
 
+
 # %%
 # 列出個人設備預約紀錄
-
-
 def listRentedEquips():
     equipList_url = base_url + '/LeaseEquip/equipListOnePage.jsp'
     result = session_req.get(
-        equipList_url+'?file_num=61621&account_id=' + account + '&equip_type=MEETING')
+        equipList_url + '?file_num=61621&account_id=' + account + '&equip_type=MEETING')
     soup = bs(result.text, 'html.parser')
     elements = soup.select('form[name="dataForm1"] input[name^="i_rent_no"]')
     elements = [x.find_parent().select('td[align="center"]') for x in elements]
@@ -238,30 +228,29 @@ def listRentedEquips():
 
 
 # %%
-listRentedEquips()
+# listRentedEquips()
 
 # %%
-equipId = 'CF15-10F-DN-01'
-print(getEquipName(equipId))
-inUsed = isEquipInUsed('20190606', '1900', '2000', 'MEETING', equipId)
-print('Equip in used? {}'.format(inUsed))
+# equipId = 'CF15-10F-DN-01'
+# print(getEquipName(equipId))
+# inUsed = isEquipInUsed('20190606', '1900', '2000', 'MEETING', equipId)
+# print('Equip in used? {}'.format(inUsed))
 # %%
-search_available_equips('MEETING', '20190624', '0900', '1200')
+# search_available_equips('MEETING', '20190624', '0900', '1200')
 # %%
-search_available_time('MEETING', 'CF01-9F', '20190624')
+# search_available_time('MEETING', 'CF01-9F', '20190624')
 
 # %%
-if not isLogin():
-    login(account, password)
-meeting_rooms = getEquipList('MEETING')
-massage_rooms = getEquipList('MASSAGE')
-
-for x in meeting_rooms:
-    print(x, meeting_rooms.get(x))
-print('\n')
-for x in massage_rooms:
-    print(x, massage_rooms.get(x))
-
+# if not isLogin():
+#     login(account, password)
+# meeting_rooms = getEquipList('MEETING')
+# massage_rooms = getEquipList('MASSAGE')
+#
+# for x in meeting_rooms:
+#     print(x, meeting_rooms.get(x))
+# print('\n')
+# for x in massage_rooms:
+#     print(x, massage_rooms.get(x))
 
 # %%
 if __name__ == '__main__':

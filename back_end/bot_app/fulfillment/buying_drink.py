@@ -1,12 +1,13 @@
 import bot_app.fulfillment.utility as util
-from flask import jsonify
-
+'''
+Intent - buying_drink
+'''
 # 確認訂單
 def ordering_summary(fulfillment):
     context = util.lookup_context(fulfillment, 'buying_drink_ordering-followup')
     params = context.get('parameters')
     strResp = '您的訂購資訊如下:\n飲料: ' + params['hot_cold'] + params['drink_item.original'] + '\n數量: ' + str(params['number']) + '\n甜度冰塊: ' + params['ice_level'] + '' + params['sugar_level'] + '\n\n請問是否訂購？'
-    return util.sample_response(strResp)
+    return util.simple_response(strResp)
 
 # 詢問飲料種類
 def ask_category(fulfillment):
@@ -21,16 +22,16 @@ def ask_category(fulfillment):
     response_str = '我們有'
     if not drink_item == '':
         if drink_item in sum([x for x in drinks.values()], []):
-            return util.sample_response(response_str + drink_item['drink_item'])
+            return util.simple_response(response_str + drink_item['drink_item'])
         else:
-            return util.sample_response('抱歉！我們沒有' + drink_item['drink_item'])
+            return util.simple_response('抱歉！我們沒有' + drink_item['drink_item'])
     else:
         if not drink_cate == '':
-            return util.sample_response(response_str + ','.join(drinks.get(drink_cate)))
+            return util.simple_response(response_str + ','.join(drinks.get(drink_cate)))
         else:
-            return util.sample_response(response_str + ','.join(list(drinks.keys())))
+            return util.simple_response(response_str + ','.join(list(drinks.keys())))
 
-    return util.sample_response('') 
+    return util.simple_response('')
 
 # fulfillment - 訂飲料
 def ordering(fulfillment):
@@ -57,7 +58,7 @@ def ordering(fulfillment):
                 'parameters': {}
             }
         }
-    return jsonify(jsonRep)
+    return util.simple_response(fulfillmentObj=jsonRep)
     # strResp = '您的訂購資訊如下:\n飲料: ' + drink_item + '\n數量: ' + str(number) + '\n甜度冰塊: ' + ice_level + '' + sugar_level + '\n\n請問是否訂購？'
     #
     # return sample_response(strResp)
@@ -65,13 +66,12 @@ def ordering(fulfillment):
 # 確認地址
 def ordering_delivery_info(fulfillment):
     print(fulfillment)
-    jsonRep = {
+    return util.simple_response(fulfillmentObj={
         'followupEventInput': {
             'name': 'events_order_confirm',
             'languageCode': 'zh-TW',
             'parameters': {}
         }
-    }
-    return jsonify(jsonRep)
+    })
 
 
