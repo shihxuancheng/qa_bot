@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM shihxuancheng/python-oracle
 LABEL MAINTAINER shihxuancheng@gmail.com
 
 WORKDIR /usr/src/qa_bot

@@ -8,6 +8,8 @@ app.config.from_object('config')
 
 app.register_blueprint(fulfillment)
 
+util.init_app(app)
+
 @app.route('/')
 def index():
     return 'Service Working!!!'
