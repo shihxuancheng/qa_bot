@@ -1,22 +1,46 @@
 import bot_app.fulfillment.utility as util
-'''
-Intent - system_pic
-'''
 
 # 查詢系統pic
 def looking_for_pic(fulfillment):
-    print(fulfillment)
+    # print(fulfillment)
     sys_code = fulfillment.get('queryResult').get('parameters').get('sys_code')
+
     # 取得系統pic
-    strRes = sys_code + '負責人是Richard Shih, Grace Liu, 請問是否幫您將問題轉達給系統負責同仁？'
-    # 無法取得，請user重新輸入
+    strsql = '''
+            select *
+        from (select c.user_name_e,c.user_name_c, b.user_email
+                from sec1117 a, sec1118 b,sec1102 c
+                where a.user_code = b.user_code
+                and a.user_code=c.user_code
+                and a.pic_type = 'B'
+                and a.system_code = :sys_code
+                order by a.pic_seq)
+        where rownum <= 3
+    '''
+    with util.get_db_conn() as conn:
+        res = conn.execute(strsql,sys_code=sys_code) 
+        res = res.fetchall()
+    if len(res) == 0:
+       strRes = '無法取得指定系統負責人，請重新輸入'
+    else:
+       strRes = sys_code + '負責人是: '
+       for row in res:
+           strRes += row[1]+'('+row[2]+'), '
+       strRes += ' 請問是否幫您將問題轉給系統負責人?'
 
     return util.simple_response(text_content=strRes)
 
 
+# 取消問題轉達給pic
+def cancel_forward(fulfillment):
+    util.reset_all_contexts(fulfillmentObj=fulfillment)
+    return util.simple_response(fulfillmentObj={
+        'outputContexts': fulfillment.get('queryResult').get('outputContexts')
+    })
+
+
 # 確認轉達問題給pic
 def confirm_forward(fulfillment):
-    print(fulfillment)
     return util.simple_response(fulfillmentObj={
         'followupEventInput': {
             'name': 'events_forward_issue',
@@ -39,3 +63,6 @@ def forward_issue(fulfillment):
 
     strRes = '好的' + user_name + '已將您的問題 "' + issue + '" 轉達給 ' + sys_code + ' 負責人'
     return util.simple_response(text_content=strRes)
+
+def init_app(app):
+    pass

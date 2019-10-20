@@ -3,3 +3,4 @@
 env/
 credential
 __pycache__
+back_end/config.py

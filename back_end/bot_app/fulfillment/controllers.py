@@ -54,3 +54,10 @@ def fetch_url():
     print(res.json())
     result = res
     return res
+
+def init_app(app):
+    app.register_blueprint(fulfillment)
+    util.init_app(app)
+    buying_drink.init_app(app)
+    system_pic.init_app(app)
+    whl_family.init_app(app)

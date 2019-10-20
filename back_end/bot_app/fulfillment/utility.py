@@ -1,7 +1,11 @@
-
 from flask import jsonify
+from sqlalchemy import create_engine
+
+db_engine = None
+
+
 def simple_response(text_content='', fulfillmentObj=None):
-    if not fulfillmentObj==None:
+    if not fulfillmentObj == None:
         jsonResp = fulfillmentObj
     else:
         jsonResp = {
@@ -33,7 +37,45 @@ def simple_response(text_content='', fulfillmentObj=None):
 
     return jsonify(jsonResp)
 
-def lookup_context(fulfillment,lookup_pattern):
+
+def lookup_context(fulfillment, lookup_pattern):
     contexts = fulfillment.get('queryResult').get('outputContexts')
     search_key = fulfillment.get('session') + '/contexts/' + lookup_pattern
-    return next((x for x in contexts if x['name']== search_key),None)
+    return next((x for x in contexts if x['name'] == search_key), None)
+
+
+
+# 清除所有的Output Contexts
+def reset_all_contexts(fulfillmentObj=None,context_list=[]):
+    if 'queryResult' in fulfillmentObj.keys():
+        contexts = fulfillmentObj.get('queryResult').get('outputContexts')
+    else:
+        contexts = fulfillmentObj.get('outputContexts')
+
+    for context in contexts:
+        if len(context_list) > 0:
+            if context['name'] in context_list:
+                context['lifespanCount'] = 0
+        else:
+            context['lifespanCount'] = 0
+
+    return fulfillmentObj
+
+
+def get_db_conn():
+    try:
+        conn = db_engine.connect()
+        return conn
+    except Exception as e:
+        print(str(e))
+
+
+def init_app(app, pre_connect=True):
+    global db_engine
+    db_engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'], encoding='utf8')
+    pre_connect = app.config['DATABASE_CONNECT_OPTIONS']['PRE_CONNECT']
+    if pre_connect:
+        try:
+            conn = db_engine.connect()
+        except Exception as e:
+            print(str(e))
