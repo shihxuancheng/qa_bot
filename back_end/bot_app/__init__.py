@@ -7,6 +7,8 @@ app.config.from_object('config')
 
 controller.init_app(app)
 
+util.init_app(app)
+
 @app.route('/')
 def index():
     return 'Service Working!!!'
