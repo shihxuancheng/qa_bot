@@ -30,9 +30,17 @@ def looking_for_pic(fulfillment):
 
     return util.simple_response(text_content=strRes)
 
+
+# 取消問題轉達給pic
+def cancel_forward(fulfillment):
+    util.reset_all_contexts(fulfillmentObj=fulfillment)
+    return util.simple_response(fulfillmentObj={
+        'outputContexts': fulfillment.get('queryResult').get('outputContexts')
+    })
+
+
 # 確認轉達問題給pic
 def confirm_forward(fulfillment):
-    print(fulfillment)
     return util.simple_response(fulfillmentObj={
         'followupEventInput': {
             'name': 'events_forward_issue',
@@ -40,6 +48,7 @@ def confirm_forward(fulfillment):
             'parameters': util.lookup_context(fulfillment, 'system_piclooking_for_pic-followup').get('parameters')
         }
     })
+
 
 # 轉達問題給pic
 def forward_issue(fulfillment):
@@ -54,3 +63,6 @@ def forward_issue(fulfillment):
 
     strRes = '好的' + user_name + '已將您的問題 "' + issue + '" 轉達給 ' + sys_code + ' 負責人'
     return util.simple_response(text_content=strRes)
+
+def init_app(app):
+    pass

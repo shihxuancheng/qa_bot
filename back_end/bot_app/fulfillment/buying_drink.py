@@ -74,4 +74,6 @@ def ordering_delivery_info(fulfillment):
         }
     })
 
+def init_app(app):
+    pass
 
