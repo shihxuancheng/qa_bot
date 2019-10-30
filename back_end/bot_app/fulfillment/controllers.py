@@ -3,6 +3,7 @@ import bot_app.fulfillment.utility as util
 import bot_app.fulfillment.buying_drink as buying_drink
 import bot_app.fulfillment.system_pic as system_pic
 import bot_app.fulfillment.whl_family as whl_family
+import bot_app.fulfillment.whl_report as whl_report
 from flask import Blueprint, Flask, jsonify, request, json
 import threading
 import time
@@ -25,7 +26,8 @@ def index():
         return eval(handleName + '(jsonObj)')
     except Exception as e:
         print(str(e))
-        return util.simple_response(str(e))
+        return util.simple_response(fulfillmentObj=util.reset_all_contexts(fulfillmentObj=jsonObj))
+        # return util.simple_response(str(e))
 
 
 @fulfillment.route("/short_call", methods=['GET', 'POST'])
@@ -60,4 +62,5 @@ def init_app(app):
     util.init_app(app)
     buying_drink.init_app(app)
     system_pic.init_app(app)
+    whl_report.init_app(app)
     whl_family.init_app(app)
