@@ -37,6 +37,12 @@ def simple_response(text_content='', fulfillmentObj=None):
 
     return jsonify(jsonResp)
 
+def clear_response(fulfillment_obj, text_content) -> dict:
+    return simple_response(fulfillmentObj={
+        "fulfillmentText": text_content,
+        "outputContexts": reset_all_contexts(fulfillmentObj=fulfillment_obj).get('queryResult').get(
+            'outputContexts')
+    })
 
 def lookup_context(fulfillment, lookup_pattern):
     contexts = fulfillment.get('queryResult').get('outputContexts')
@@ -44,9 +50,8 @@ def lookup_context(fulfillment, lookup_pattern):
     return next((x for x in contexts if x['name'] == search_key), None)
 
 
-
 # 清除所有的Output Contexts
-def reset_all_contexts(fulfillmentObj=None,context_list=[]):
+def reset_all_contexts(fulfillmentObj=None, context_list=[]) -> dict:
     if 'queryResult' in fulfillmentObj.keys():
         contexts = fulfillmentObj.get('queryResult').get('outputContexts')
     else:

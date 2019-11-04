@@ -1,5 +1,6 @@
 import bot_app.fulfillment.utility as util
 
+
 # 查詢系統pic
 def looking_for_pic(fulfillment):
     # print(fulfillment)
@@ -18,25 +19,23 @@ def looking_for_pic(fulfillment):
         where rownum <= 3
     '''
     with util.get_db_conn() as conn:
-        res = conn.execute(strsql,sys_code=sys_code) 
+        res = conn.execute(strsql, sys_code=sys_code)
         res = res.fetchall()
-    if len(res) == 0:
-       strRes = '無法取得指定系統負責人，請重新輸入'
-    else:
-       strRes = sys_code + '負責人是: '
-       for row in res:
-           strRes += row[1]+'('+row[2]+'), '
-       strRes += ' 請問是否幫您將問題轉給系統負責人?'
 
-    return util.simple_response(text_content=strRes)
+    if len(res) == 0:
+        strRes = '無法取得指定系統負責人，請重新輸入'
+        return util.clear_response(fulfillment, strRes)
+    else:
+        strRes = sys_code + '負責人是: '
+        for row in res:
+            strRes += row[1] + '(' + row[2] + '), '
+        strRes += ' 請問是否幫您將問題轉給系統負責人?'
+        return util.simple_response(text_content=strRes)
 
 
 # 取消問題轉達給pic
 def cancel_forward(fulfillment):
-    util.reset_all_contexts(fulfillmentObj=fulfillment)
-    return util.simple_response(fulfillmentObj={
-        'outputContexts': fulfillment.get('queryResult').get('outputContexts')
-    })
+    return util.clear_response(fulfillment)
 
 
 # 確認轉達問題給pic
@@ -62,7 +61,8 @@ def forward_issue(fulfillment):
     user_name = 'Richard Shih'
 
     strRes = '好的' + user_name + '已將您的問題 "' + issue + '" 轉達給 ' + sys_code + ' 負責人'
-    return util.simple_response(text_content=strRes)
+    return util.clear_response(fulfillment, strRes)
+
 
 def init_app(app):
     pass
