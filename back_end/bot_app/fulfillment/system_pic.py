@@ -35,7 +35,7 @@ def looking_for_pic(fulfillment):
 
 # 取消問題轉達給pic
 def cancel_forward(fulfillment):
-    return util.clear_response(fulfillment)
+    return util.clear_response(fulfillment,u'好的，希望再次為您服務!')
 
 
 # 確認轉達問題給pic
