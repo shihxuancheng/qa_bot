@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import bot_app.fulfillment.utility as util
 from datetime import datetime
+import traceback
 
 base_url = 'http://family.wanhai.com'
 account = None
@@ -234,15 +235,19 @@ def list_rented_equips(fulfillment):
         return util.simple_response(text_content=u'您目前沒有預約任何的設備')
     else:
         str_rented_list = u'您預約的設備如下：\n'
-        str_rented_list += ', \n'.join([x[2] + ' ' + x[3] + ' ' + x[1] for x in rented_list])
+        str_rented_list += ', \n'.join([x[2] + ' ' + x[3] + ' ' + x[1] + '(預約代號: '+x[0]+')' for x in rented_list])
         return util.simple_response(text_content=str_rented_list)
 
+'''
+**************************************************************************************************************************************
+    Fulfillment Functions
+**************************************************************************************************************************************
+'''
 
 def list_all_meeting_rooms(fulfillment):
     global meeting_rooms
-    str_meeting_rooms = ', \n'.join([x['id'] + x['name'] for x in meeting_rooms.values()])
+    str_meeting_rooms = ', \n'.join([x['name'] for x in meeting_rooms.values()])
     return util.simple_response(text_content=str_meeting_rooms)
-
 
 def check_equip_in_use(fulfillment):
     try:
@@ -252,25 +257,53 @@ def check_equip_in_use(fulfillment):
         date = datetime.strptime(params.get('date').replace(':', ''), date_pattern)
         start_time = datetime.strptime(params.get('time-period').get('startTime').replace(':', ''), date_pattern)
         end_time = datetime.strptime(params.get('time-period').get('endTime').replace(':', ''), date_pattern)
-        meeting_room_id = next([x['id'] for x in meeting_rooms if x['name'].find(meeting_room) >= 0], None)
+        target_rooms = [x['id'] for x in meeting_rooms.values() if x['name'].find(meeting_room) >= 0]
+        meeting_room_id = next(iter(target_rooms), None)
 
         if is_equip_in_use(meeting_room_id, date, start_time, end_time):
             return util.simple_response(text_content=meeting_room+u'已經被人預約')
         else:
-            return util.simple_response(text_content=meeting_room+u'尚未被預約')
+            return util.simple_response(text_content=meeting_room+u'尚未被預約，請問幫您預約嗎?')
 
     except Exception as e:
+        # traceback.print_exc()
         return util.simple_response(text_content=str(e))
-        pass
 
+def booking_equip(fulfillment):
+    try:
+        date_pattern = '%Y-%m-%dT%H%M%S%z'
+        params = fulfillment.get('queryResult').get('parameters')
+        meeting_room = params.get('meeting_room')
+        date = datetime.strptime(params.get('date').replace(':', ''), date_pattern)
+        start_time = datetime.strptime(params.get('time-period').get('startTime').replace(':', ''), date_pattern)
+        end_time = datetime.strptime(params.get('time-period').get('endTime').replace(':', ''), date_pattern)
 
-def greet_cancel(fulfillment):
-    util.reset_all_contexts(fulfillment)
+        str_res = '您要預約: ' + meeting_room + '，時間: ' + date.strftime('%Y-%m-%d') + ' ' + start_time.strftime('%H:%M:%S') + '~' + end_time.strftime('%H:%M:%S') + ' 請問是否確定?'
+        return util.simple_response(text_content=str_res)
+    except:
+        # traceback.print_exc()
+        return util.simple_response(text_content=str(e))
+
+def check_equip_in_use_confirm_booking(fulfillment):
     return util.simple_response(fulfillmentObj={
-        'fulfillmentText': '好的，沒有問題！',
-        'outputContexts': fulfillment.get('queryResult').get('outputContexts')
-    })
+        'followupEventInput': {
+            'name': 'event_booking_equip',
+            'languageCode': 'zh-TW',
+            'parameters': util.lookup_context(fulfillment, 'whl_familycheck_equip_in_use-followup').get('parameters')
+        }
+    })    
 
+def check_equip_in_use_cancel_booking(fulfillment):
+    return util.clear_response(fulfillment_obj=fulfillment, text_content=u'好的，希望能再次為您服務!')
+
+def booking_equip_cancel(fulfillment):
+    return util.clear_response(fulfillment_obj=fulfillment, text_content=u'好的，希望能再次為您服務!')
+
+def cancel_booking_equip(fulfillment):
+    number = fulfillment.get('queryResult').get('parameters').get('number')
+    #do nothing, just response
+    str_res = u'預約代號: ' + number + ' 已成功取消預約!'
+    return util.clear_response(fulfillment_obj=fulfillment,text_content=str_res)
 
 def init_app(app):
     global password, account, meeting_rooms
