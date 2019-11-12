@@ -1,33 +1,27 @@
 # QA Bot
 
-
-
-
 Table of Contents
 ===
 
 [TOC]
 
-Beginners Guide
+Startup
 ===
 
-If you are a total beginner to this, start here!
+All source code can be found on [GitHub](https://github.com/shihxuancheng/qa_bot)
 
-1. Visit hackmd.io
-2. Click "Sign in"
-3. Choose a way to sign in
-4. Start writing note!
+1. Use [back_end/run.py](https://github.com/shihxuancheng/qa_bot/blob/master/back_end/run.py) to launch backend app
+2. [front_end/detect_intnt.py](https://github.com/shihxuancheng/qa_bot/blob/master/front_end/detect_intent_texts.py) is a demo code demostrate that how to detect intents by  python api 
 
 
-NLU (Natural-language understanding)
+Intent-Based NLU
 ===
-
-Intent Based NLU
----
 ### Google Dialogflow
 [![image alt](https://miro.medium.com/max/1838/1*ZtwmXH1dvBKeYQj3M8kErw.png)](https://dialogflow.com/)
 
-Request
+#### Example of Restful API for Fulfillment
+
+==Request==
 ```json
     POST body:
     {
@@ -70,7 +64,7 @@ Request
     }
 ```
 
-Response
+==Response==
 ```json
   {
       "fulfillmentText": "This is a text response",
@@ -129,6 +123,7 @@ Response
     }
 ```
 
+#### Reference
 
 - [DialogFlow Offical Site](https://dialogflow.com/)
 - [DialogFlow client api for Python](https://github.com/shihxuancheng/dialogflow-python-client-v2)
@@ -136,9 +131,13 @@ Response
 - [Voice App 開發實務：使用Diagflow+firebase開發Google home App (google assistant action)](https://ithelp.ithome.com.tw/users/20046160/ironman/1808)
 ---
 ### Microsoft (bot service + LUIS)
-[![image alt](https://www.outsystems.com/-/media/images/evaluation-guide/how-do-i-create-chat-and-voice-enabled-apps/ai-page-graphics-23.png?la=en)](https://www.luis.ai/home)
+[![image alt](https://2.bp.blogspot.com/-V3CtS3b1HAc/WWzaWvwJzVI/AAAAAAAABUc/0Od0YddweRUVbOt5OyRbd-6AhJJUwGQ1ACLcBGAs/s1600/Title.png)](https://www.luis.ai/home)
 
-Request
+### Microsoft QnA Maker
+
+#### Example of Restful API
+
+==Request==
 ```json
 {
     "question": "Is the QnA Maker Service free?",
@@ -146,7 +145,7 @@ Request
 }
 ```
 
-Response
+==Response==
 ```json
 {
   "answers": [
@@ -183,7 +182,7 @@ Response
   ]
 }
 ```
-
+#### Reference
 - [利用 MS Bot framework 與 Cognitive Service 建構自用智慧小秘書 系列](https://ithelp.ithome.com.tw/users/20091494/ironman/1411?page=1)
 - [使用 Microsoft Conversational AI Tools - 打造新时代的UI界面 系列](https://ithelp.ithome.com.tw/users/20083151/ironman/2101)
 - [Bot Framework SDF for Python](https://github.com/microsoft/botbuilder-python)
@@ -195,20 +194,27 @@ Demo
 
 ## Agent1 - Wanhai_QABot
 
-### QnA
+### qa_bot
 
+[![](https://github.com/shihxuancheng/qa_bot/blob/master/resources/assets/qa_bot_dialogflow.png?raw=true)](https://www.draw.io/?lightbox=1&highlight=0000ff&nav=1&page-id=c7558073-3199-34d8-9f00-42111426c3f3&title=qa_bot%20dialog%20flow.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fshihxuancheng%2Fqa_bot%2Fmaster%2Fresources%2Fassets%2Fqa_bot%2520dialog%2520flow.drawio)
 
 ## Agen2 - Wanhai_ServiceBot
 
 ### system_pic
-[![image alt](https://github.com/shihxuancheng/qa_bot/blob/master/resources/assets/system_pic_dialogflow.png?raw=true)](https://www.draw.io/?lightbox=1&target=blank&highlight=0000ff&nav=1&page-id=c7558073-3199-34d8-9f00-42111426c3f3&title=qa_bot%20dialog%20flow.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fshihxuancheng%2Fqa_bot%2Fmaster%2Fresources%2Fassets%2Fqa_bot%2520dialog%2520flow.drawio)
----
-### whl_report
-[![image alt](https://github.com/shihxuancheng/qa_bot/blob/master/resources/assets/system_pic_dialogflow.png?raw=true)](https://www.draw.io/?lightbox=1&target=blank&highlight=0000ff&nav=1&page-id=ZBpW3UwpYAJFGxqoSjzb&title=qa_bot%20dialog%20flow.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fshihxuancheng%2Fqa_bot%2Fmaster%2Fresources%2Fassets%2Fqa_bot%2520dialog%2520flow.drawio)
----
-### whl_family
-[![image alt](https://github.com/shihxuancheng/qa_bot/blob/master/resources/assets/whl_family_dialogflow.png?raw=true)](https://www.draw.io/?lightbox=1&target=blank&highlight=0000ff&nav=1&page-id=bM1LIQPi1tVLYMAEycQf&title=qa_bot%20dialog%20flow.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fshihxuancheng%2Fqa_bot%2Fmaster%2Fresources%2Fassets%2Fqa_bot%2520dialog%2520flow.drawio)
 
+[![](https://github.com/shihxuancheng/qa_bot/blob/master/resources/assets/system_pic_dialogflow.png?raw=true)](https://www.draw.io/?lightbox=1&target=blank&highlight=0000ff&nav=1&page-id=s6GVqAID3o5IfIvOThLx&title=qa_bot%20dialog%20flow.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fshihxuancheng%2Fqa_bot%2Fmaster%2Fresources%2Fassets%2Fqa_bot%2520dialog%2520flow.drawio)
+
+---
+
+### whl_report
+
+[![](https://github.com/shihxuancheng/qa_bot/blob/master/resources/assets/whl_report_dialogflow.png?raw=true)](https://www.draw.io/?lightbox=1&target=blank&highlight=0000ff&nav=1&page-id=ZBpW3UwpYAJFGxqoSjzb&title=qa_bot%20dialog%20flow.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fshihxuancheng%2Fqa_bot%2Fmaster%2Fresources%2Fassets%2Fqa_bot%2520dialog%2520flow.drawio)
+
+---
+
+### whl_family
+
+[![](https://github.com/shihxuancheng/qa_bot/blob/master/resources/assets/whl_family_dialogflow.png?raw=true)](https://www.draw.io/?lightbox=1&target=blank&highlight=0000ff&nav=1&page-id=bM1LIQPi1tVLYMAEycQf&title=qa_bot%20dialog%20flow.drawio#Uhttps%3A%2F%2Fraw.githubusercontent.com%2Fshihxuancheng%2Fqa_bot%2Fmaster%2Fresources%2Fassets%2Fqa_bot%2520dialog%2520flow.drawio)
 
 Slide
 ---
