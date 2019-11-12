@@ -58,11 +58,18 @@ def forward_issue(fulfillment):
     sys_code = params.get('sys_code')
 
     # get user name, div, dept information from sec system by employee_no
-    user_name = 'Richard Shih'
+    strsql = 'select user_name_e from sec1102 where user_code=:user_code and rownum <=1'
+    with util.get_db_conn() as conn:
+        res = conn.execute(strsql, user_code=employee_no)
+        res = res.fetchall()
+    if len(res) == 0:
+        user_name = ''
+    else:
+        for row in res:
+            user_name = row[0]
 
     strRes = '好的' + user_name + '已將您的問題 "' + issue + '" 轉達給 ' + sys_code + ' 負責人'
     return util.clear_response(fulfillment, strRes)
-
 
 def init_app(app):
     pass
